@@ -104,7 +104,6 @@ public class LoginUserStory {
 	@Test
 	public void Scenario5()
 	{
-		driver.get("https://www.linkedin.com/");
 		WebElement username_input = driver.findElement(By.id("session_key-login"));
 		username_input.sendKeys(StringUtils.repeat("a", 200));
 		WebElement password_input = driver.findElement(By.id("session_password-login"));
@@ -123,7 +122,6 @@ public class LoginUserStory {
 	@Test
 	public void Scenario6()
 	{
-		driver.get("https://www.linkedin.com/");
 		WebElement username_input = driver.findElement(By.id("session_key-login"));
 		username_input.sendKeys("vili105@abv.bg");
 		WebElement password_input = driver.findElement(By.id("session_password-login"));
