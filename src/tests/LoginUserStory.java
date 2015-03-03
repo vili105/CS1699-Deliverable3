@@ -30,6 +30,7 @@ public class LoginUserStory {
 	}
 	
 	
+    // Tests Scenario 1 of User Story 4
 	// Tests that short password under 6 characters will not be accepted
 	// an error message will be returned
 	@Test
@@ -48,6 +49,7 @@ public class LoginUserStory {
 	}
 	
 	
+    // Tests Scenario 2 of User Story 4
 	// Tests that the user should not be authenticated with wrong password
 	// an error message will be returned
 	@Test
@@ -66,7 +68,8 @@ public class LoginUserStory {
 	}
 	
 	
-	
+
+    // Tests Scenario 3 of User Story 4
 	// Tests that the user should not be authenticated with wrong email
 	// an error message will be returned
 	@Test
@@ -85,7 +88,7 @@ public class LoginUserStory {
 	}
 
 	
-	
+	// Tests Scenario 4 of User Story 4
 	// Tests that if the user is authenticated with a pair of valid email and password
 	// the user will be redirected to the profile page that contains the user's name
 	@Test	
@@ -102,5 +105,4 @@ public class LoginUserStory {
 		
 		assertTrue(identity.getText().contains("vil vil"));
 	}
-
 }

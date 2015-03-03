@@ -26,7 +26,7 @@ public class SignupUserStory {
 		driver.quit();
 	}
 
-	
+    // Tests Scenario 1 of User Story 1
 	// Tests that attempting to create an account with an email address
 	// that has been registered by someone else will be rejected
 	// Note that the test case might sometimes fail because user is redirected 
@@ -44,6 +44,7 @@ public class SignupUserStory {
 	}
 	
 	
+    // Tests Scenario 2 of User Story 1
 	// Tests that attempting to create an account with a password
 	// that is too short (5-character long) will be rejected
 	@Test
@@ -58,6 +59,8 @@ public class SignupUserStory {
 		assertEquals(expectedText, actualText);
 	}
 	
+
+    // Tests Scenario 3 of User Story 1
 	// Tests that attempting to create an account with a email address
 	// that does not follow the format of a legitimate email address will be rejected
 	@Test
@@ -72,6 +75,8 @@ public class SignupUserStory {
 		assertEquals(expectedText, actualText);
 	}
 	
+    
+    // Tests Scenario 4 of User Story 1
 	// Tests that attempting to create an account
 	// without entering a last name will be rejected
 	@Test
@@ -85,6 +90,7 @@ public class SignupUserStory {
 		assertEquals(expectedText, actualText);
 	}
 	
+    // Tests Scenario 5 of User Story 1
 	// Tests that attempting to create an account with the same first name
 	// and last name will be accepted and user will be redirected to another
 	// web page that asks for user's phone number

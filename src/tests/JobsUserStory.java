@@ -30,7 +30,7 @@ public class JobsUserStory {
 		driver.quit();
 	}
 	
-
+    // Tests Scenario 1 of User Story 3
 	// Tests that if user submit the form without filling the company name,
 	// an error message will be returned
 	@Test
@@ -44,6 +44,7 @@ public class JobsUserStory {
 	}
 	
 	
+    // Tests Scenario 2 of User Story 3
 	// Tests that if user enter a company name longer than 100 characters
 	// an error message will be returned
 	@Test
@@ -59,7 +60,8 @@ public class JobsUserStory {
 		assertEquals("Your company name must be no longer than 100 characters.", error_element.getText());
 	}
 	
-	
+    
+	// Tests Scenario 3 of User Story 3
 	// Tests that if user submit the form with empty job description
 	// an error message will be returned
 	@Test
@@ -73,7 +75,7 @@ public class JobsUserStory {
 	}
 	
 	
-	
+	// Tests Scenario 4 of User Story 3
 	// Tests that if user submit the form without postal code
 	// an error message will be returned
 	@Test
@@ -86,7 +88,7 @@ public class JobsUserStory {
 		assertEquals("Please enter a valid postal code.", error_element.getText());
 	}
 	
-	
+	// Tests Scenario 5 of User Story 3
 	// Tests that if user submit the form with the minimum required fields filled
 	// including the company name, job function, job title, job description, skills and post code fields
 	// the test will fail because Selenium cannot fill the fields
@@ -123,6 +125,7 @@ public class JobsUserStory {
 	}
 	
 	
+    // Tests Scenario 6 of User Story 3
 	// Tests that if user submit the form with empty job title
 	// an error message will be returned
 	@Test
