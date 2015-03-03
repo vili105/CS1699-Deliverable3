@@ -14,6 +14,7 @@ public class LoginUserStory {
 	public void setUp()
 	{
 		driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(URL);
 	}
 	
