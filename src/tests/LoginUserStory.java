@@ -24,38 +24,38 @@ public class LoginUserStory
 	
 	/**
 	 * Short password under 6 characters should not be accepted
-	 * Check whether the proper error message is displayed
+	 * Check if the proper error message is displayed
 	 */
 	@Test
-	public void Scenario1()
+	public void Scenario1() throws InterruptedException
 	{
 		driver.get("https://www.linkedin.com/");
-		WebElement username_element = driver.findElement(By.id("session_key-login"));
-		username_element.sendKeys("vili105@abv.bg");
-		WebElement password_element = driver.findElement(By.id("session_password-login"));
-		password_element.sendKeys("sh");
-		WebElement form_element = driver.findElement(By.id("signin"));
-		form_element.submit();
+		WebElement username_input = driver.findElement(By.id("session_key-login"));
+		username_input.sendKeys("vili105@abv.bg");
+		WebElement password_input = driver.findElement(By.id("session_password-login"));
+		password_input.sendKeys("sh");
+		WebElement form = driver.findElement(By.id("signin"));
+		form.submit();
 		
-		WebElement identity = driver.findElement(By.id("session_password-login-error"));
+		WebElement identity_container = driver.findElement(By.id("session_password-login-error"));
 		
-		assertEquals(identity.getText(), "The password you provided must have at least 6 characters.");
+		assertEquals(identity_container.getText(), "The password you provided must have at least 6 characters.");
 	}
 	
 	/**
 	 * Enter wrong password
-	 * Check whether the proper error message is displayed
+	 * Check if the proper error message is displayed
 	 */
 	@Test
-	public void Scenario2()
+	public void Scenario2() throws InterruptedException
 	{
 		driver.get("https://www.linkedin.com/");
-		WebElement username_element = driver.findElement(By.id("session_key-login"));
-		username_element.sendKeys("vili105@abv.bg");
-		WebElement password_element = driver.findElement(By.id("session_password-login"));
-		password_element.sendKeys("wrong_password");
-		WebElement form_element = driver.findElement(By.id("signin"));
-		form_element.submit();
+		WebElement username_input = driver.findElement(By.id("session_key-login"));
+		username_input.sendKeys("vili105@abv.bg");
+		WebElement password_input = driver.findElement(By.id("session_password-login"));
+		password_input.sendKeys("wrong_password");
+		WebElement form = driver.findElement(By.id("signin"));
+		form.submit();
 		
 		WebElement identity = driver.findElement(By.id("session_password-login-error"));
 		
@@ -64,18 +64,18 @@ public class LoginUserStory
 	
 	/**
 	 * Enter wrong email
-	 * Check whether the proper error message is displayed
+	 * Check if the proper error message is displayed
 	 */
 	@Test
-	public void Scenario3()
+	public void Scenario3() throws InterruptedException
 	{
 		driver.get("https://www.linkedin.com/");
-		WebElement username_element = driver.findElement(By.id("session_key-login"));
-		username_element.sendKeys("vili105105105105105@abv.bg");
-		WebElement password_element = driver.findElement(By.id("session_password-login"));
-		password_element.sendKeys("wrong_password");
-		WebElement form_element = driver.findElement(By.id("signin"));
-		form_element.submit();
+		WebElement username_input = driver.findElement(By.id("session_key-login"));
+		username_input.sendKeys("vili105105105105105@abv.bg");
+		WebElement password_input = driver.findElement(By.id("session_password-login"));
+		password_input.sendKeys("wrong_password");
+		WebElement form = driver.findElement(By.id("signin"));
+		form.submit();
 		
 		WebElement identity = driver.findElement(By.id("session_key-login-error"));
 		
@@ -84,18 +84,18 @@ public class LoginUserStory
 
 	/**
 	 * Enter valid email and password and obtain login
-	 * Check whether the user name is contained in the profile element
+	 * Check if the user name is contained in the profile element
 	 */
 	@Test
-	public void Scenario4()
+	public void Scenario4() throws InterruptedException
 	{
 		driver.get("https://www.linkedin.com/");
-		WebElement username_element = driver.findElement(By.id("session_key-login"));
-		username_element.sendKeys("vili105@abv.bg");
-		WebElement password_element = driver.findElement(By.id("session_password-login"));
-		password_element.sendKeys("chiburashka");
-		WebElement form_element = driver.findElement(By.id("signin"));
-		form_element.submit();
+		WebElement username_input = driver.findElement(By.id("session_key-login"));
+		username_input.sendKeys("vili105@abv.bg");
+		WebElement password_input = driver.findElement(By.id("session_password-login"));
+		password_input.sendKeys("chiburashka");
+		WebElement form = driver.findElement(By.id("signin"));
+		form.submit();
 		
 		WebElement identity = driver.findElement(By.id("identity"));
 		
