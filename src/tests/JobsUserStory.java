@@ -2,6 +2,7 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,7 +48,7 @@ public class JobsUserStory
 	public void Scenario2()
 	{
 		WebElement company_name_input = driver.findElement(By.id("field-company-name"));
-		company_name_input.sendKeys("This is a very long company name. This is a very long company name. This is a very long company name. This is a very long company name. This is a very long company name. This is a very long company name.");
+		company_name_input.sendKeys(StringUtils.repeat("a", 101));
 		
 		WebElement continue_button = driver.findElement(By.id("_action_saveJobAttributesAndContinue"));
 		continue_button.click();
