@@ -99,9 +99,8 @@ public class LoginUserStory {
 		assertTrue(identity.getText().contains("vil vil"));
 	}
 	
-	// Longer emails than 128 characters should not be accepted
-	// Fill the email field with 200 repeating 'a' characters
-	// Check if the proper error message is displayed
+	// Test that longer emails than 128 characters will not be accepted
+	// an error message will be returned
 	@Test
 	public void Scenario5()
 	{
@@ -117,9 +116,8 @@ public class LoginUserStory {
 		assertTrue(error.getText().contains("The text you provided is too long"));
 	}
 
-	// Longer passwords than 400 characters should not be accepted
-	// Fill the password field with 500 repeating 'a' characters
-	// Check if the proper error message is displayed
+	// Test that longer passwords than 400 characters will not be accepted
+	// an error message will be returned
 	@Test
 	public void Scenario6()
 	{
