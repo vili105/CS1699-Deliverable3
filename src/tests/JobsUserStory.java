@@ -10,10 +10,21 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
+/**
+ * User story: 
+ * As a company owner
+ * I want to post a new job listing
+ * So that I can recruit some talents
+ */
 public class JobsUserStory
 {
 	private WebDriver driver;
 
+	/**
+	 * Prepare the Firefox driver
+	 * Authenticate with a valid user
+	 * Redirect to the "post a job" form
+	 */
 	@Before
 	public void setUp() throws Exception
 	{
@@ -22,6 +33,9 @@ public class JobsUserStory
 		goToPostJob();
 	}
 
+	/**
+	 * Free up the used resources
+	 */
 	@After
 	public void tearDown() throws Exception
 	{
@@ -30,6 +44,8 @@ public class JobsUserStory
 
 	/**
 	 * Submit the form without filling the company name
+	 * 
+	 * An error message is expected
 	 */
 	@Test
 	public void Scenario1()
@@ -43,6 +59,8 @@ public class JobsUserStory
 	
 	/**
 	 * Enter a company name longer than 100 characters
+	 * 
+	 * An error message is expected
 	 */
 	@Test
 	public void Scenario2()
@@ -59,6 +77,8 @@ public class JobsUserStory
 	
 	/**
 	 * Submit the form with empty job description
+	 * 
+	 * An erro message is expected
 	 */
 	@Test
 	public void Scenario3()
@@ -72,6 +92,8 @@ public class JobsUserStory
 	
 	/**
 	 * Submit the form without postal code
+	 * 
+	 * An error message is expected
 	 */
 	@Test
 	public void Scenario4()
@@ -85,7 +107,12 @@ public class JobsUserStory
 	
 	/**
 	 * Submit the form with the minimum required fields filled
-	 * The test will fail because Selenium cannot fill the fields inside iframes
+	 * 
+	 * Fill the company name, job function, job title,
+	 * job description, skills and post code fields
+	 * 
+	 * The test will fail because Selenium cannot fill the fields
+	 * inside the TinyMCE plugin (http://www.tinymce.com) inside iframe 
 	 */
 	@Test
 	public void Scenario5()
@@ -120,6 +147,8 @@ public class JobsUserStory
 	
 	/**
 	 * Submit the form with empty job title
+	 * 
+	 * An error message is expected
 	 */
 	@Test
 	public void Scenario6()
@@ -131,6 +160,10 @@ public class JobsUserStory
 		assertEquals("Please enter a title for this job.", error_element.getText());
 	}
 	
+	/**
+	 * Helper method that authenticates the
+	 * test user before each test scenario
+	 */
 	private void login()
 	{
 		driver.get("https://www.linkedin.com/");
@@ -142,6 +175,10 @@ public class JobsUserStory
 		form_element.submit();
 	}
 	
+	/**
+	 * Helper method that loads the
+	 * "post a job" page before each test scenario
+	 */
 	private void goToPostJob()
 	{
 		driver.get("https://www.linkedin.com/job/consumer/wow/index?trk=jobs_home_post_job_new");

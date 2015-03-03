@@ -6,16 +6,28 @@ import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+/**
+ * User story: 
+ * As a user
+ * I want to login to the system
+ * So that I can access my personal data
+ */
 public class LoginUserStory
 {
 	private WebDriver driver;
 	
+	/**
+	 * Prepare the Firefox driver
+	 */
 	@Before
 	public void setUp()
 	{
 		driver = new FirefoxDriver();
 	}
 	
+	/**
+	 * Free up the used resources
+	 */
 	@After
 	public void tearDown()
 	{
@@ -24,6 +36,7 @@ public class LoginUserStory
 	
 	/**
 	 * Short password under 6 characters should not be accepted
+	 * 
 	 * Check if the proper error message is displayed
 	 */
 	@Test
@@ -43,7 +56,8 @@ public class LoginUserStory
 	}
 	
 	/**
-	 * Enter wrong password
+	 * The user should not be authenticated with wrong password
+	 * 
 	 * Check if the proper error message is displayed
 	 */
 	@Test
@@ -63,7 +77,8 @@ public class LoginUserStory
 	}
 	
 	/**
-	 * Enter wrong email
+	 * The user should not be authenticated with wrong email
+	 * 
 	 * Check if the proper error message is displayed
 	 */
 	@Test
@@ -83,7 +98,9 @@ public class LoginUserStory
 	}
 
 	/**
-	 * Enter valid email and password and obtain login
+	 * The user should be authenticated with a
+	 * valid email and password
+	 * 
 	 * Check if the user name is contained in the profile element
 	 */
 	@Test
