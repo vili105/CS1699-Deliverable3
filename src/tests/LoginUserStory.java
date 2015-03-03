@@ -7,10 +7,12 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
- * User story: 
+ * Login User Story
+ * 
  * As a user
  * I want to login to the system
  * So that I can access my personal data
+ * 
  */
 public class LoginUserStory
 {

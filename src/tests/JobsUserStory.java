@@ -11,10 +11,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 /**
- * User story: 
+ * Jobs User Story
+ * 
  * As a company owner
  * I want to post a new job listing
  * So that I can recruit some talents
+ * 
  */
 public class JobsUserStory
 {
