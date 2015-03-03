@@ -38,9 +38,9 @@ public class LoginUserStory {
 		WebElement form = driver.findElement(By.id("signin"));
 		form.submit();
 		
-		WebElement identity_container = driver.findElement(By.id("session_password-login-error"));
+		WebElement error = driver.findElement(By.id("session_password-login-error"));
 		
-		assertEquals(identity_container.getText(), "The password you provided must have at least 6 characters.");
+		assertEquals(error.getText(), "The password you provided must have at least 6 characters.");
 	}
 	
 	
@@ -56,9 +56,9 @@ public class LoginUserStory {
 		WebElement form = driver.findElement(By.id("signin"));
 		form.submit();
 		
-		WebElement identity = driver.findElement(By.id("session_password-login-error"));
+		WebElement error = driver.findElement(By.id("session_password-login-error"));
 		
-		assertTrue(identity.getText().contains("Hmm, that's not the right password"));
+		assertTrue(error.getText().contains("Hmm, that's not the right password"));
 	}
 	
 	
@@ -75,9 +75,9 @@ public class LoginUserStory {
 		WebElement form = driver.findElement(By.id("signin"));
 		form.submit();
 		
-		WebElement identity = driver.findElement(By.id("session_key-login-error"));
+		WebElement error = driver.findElement(By.id("session_key-login-error"));
 		
-		assertEquals(identity.getText(), "Hmm, we don't recognize that email. Please try again.");
+		assertEquals(error.getText(), "Hmm, we don't recognize that email. Please try again.");
 	}
 
 	
