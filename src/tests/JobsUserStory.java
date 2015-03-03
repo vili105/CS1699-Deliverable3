@@ -1,4 +1,6 @@
 import static org.junit.Assert.*;
+
+import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -16,6 +18,7 @@ public class JobsUserStory {
 	public void setUp() throws Exception
 	{
 		driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		login();
 		goToPostJob();
 	}
@@ -149,8 +152,13 @@ public class JobsUserStory {
 	 // Helper method that loads the post a job" page before each test scenario	 
 	private void goToPostJob()
 	{
-		driver.get("https://www.linkedin.com/job/consumer/wow/index?trk=jobs_home_post_job_new");
-		WebElement post_a_job_button = driver.findElement(By.id("extra")).findElement(By.linkText("Post a Job"));
-		post_a_job_button.click();
+		WebElement jobs_nav_link = driver.findElement(By.partialLinkText("Jobs"));
+		jobs_nav_link.click();
+		
+		WebElement post_a_job_button1 = driver.findElement(By.className("post-job-button"));
+		post_a_job_button1.click();
+		
+		WebElement post_a_job_button2 = driver.findElement(By.id("extra")).findElement(By.linkText("Post a Job"));
+		post_a_job_button2.click();
 	}
 }
