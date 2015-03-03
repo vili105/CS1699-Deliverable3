@@ -27,7 +27,7 @@ public class LoginUserStory
 	 * Check if the proper error message is displayed
 	 */
 	@Test
-	public void Scenario1() throws InterruptedException
+	public void Scenario1()
 	{
 		driver.get("https://www.linkedin.com/");
 		WebElement username_input = driver.findElement(By.id("session_key-login"));
@@ -47,7 +47,7 @@ public class LoginUserStory
 	 * Check if the proper error message is displayed
 	 */
 	@Test
-	public void Scenario2() throws InterruptedException
+	public void Scenario2()
 	{
 		driver.get("https://www.linkedin.com/");
 		WebElement username_input = driver.findElement(By.id("session_key-login"));
@@ -67,7 +67,7 @@ public class LoginUserStory
 	 * Check if the proper error message is displayed
 	 */
 	@Test
-	public void Scenario3() throws InterruptedException
+	public void Scenario3()
 	{
 		driver.get("https://www.linkedin.com/");
 		WebElement username_input = driver.findElement(By.id("session_key-login"));
@@ -87,7 +87,7 @@ public class LoginUserStory
 	 * Check if the user name is contained in the profile element
 	 */
 	@Test
-	public void Scenario4() throws InterruptedException
+	public void Scenario4()
 	{
 		driver.get("https://www.linkedin.com/");
 		WebElement username_input = driver.findElement(By.id("session_key-login"));
