@@ -126,7 +126,7 @@ public class JobsUserStory {
 	}
 	
 	
-    // Tests Scenario 6 of User Story 3
+	// Tests Scenario 6 of User Story 3
 	// Tests that if user submit the form with empty job title
 	// an error message will be returned
 	@Test
@@ -153,7 +153,7 @@ public class JobsUserStory {
 	}
 	
 
-	 // Helper method that loads the post a job" page before each test scenario	 
+    // Helper method that loads the post a job" page before each test scenario
 	private void goToPostJob()
 	{
 		WebElement jobs_nav_link = driver.findElement(By.partialLinkText("Jobs"));

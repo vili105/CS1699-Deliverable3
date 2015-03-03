@@ -42,7 +42,7 @@ public class SearchbarUserStory {
 	}
 	
 	
-    // Tests Scenario 2 of User Story 2
+	// Tests Scenario 2 of User Story 2
 	// Tests that searching for "Google" using the search bar will return a company named "Google"
 	// that users can click a button to join
 	@Test
@@ -53,7 +53,7 @@ public class SearchbarUserStory {
 	}
 	
     
-    // Tests Scenario 3 of User Story 2
+	// Tests Scenario 3 of User Story 2
 	// Tests that searching for "Software Developer" using the search bar will return a job post
 	// related to "Software Developer" that users can click a button to view
 	@Test
@@ -64,7 +64,7 @@ public class SearchbarUserStory {
 	}
 	
 	
-    // Tests Scenario 4 of User Story 2
+	// Tests Scenario 4 of User Story 2
 	// Tests that searching for "Java User Group" using the search bar will return a group
 	// related to "Java User Group" that users can click a button to join
 	@Test
@@ -74,7 +74,7 @@ public class SearchbarUserStory {
 		assertTrue(driver.findElements(By.linkText("Join")).size()!=0);		 
 	}
 	
-    // Tests Scenario 5 of User Story 2
+	// Tests Scenario 5 of User Story 2
 	// Tests that searching for "iPhone 5s" using the search bar will return a post
 	// related to "iPhone 5s"" that users can click a button to share
 	@Test

@@ -30,7 +30,7 @@ public class LoginUserStory {
 	}
 	
 	
-    // Tests Scenario 1 of User Story 4
+	// Tests Scenario 1 of User Story 4
 	// Tests that short password under 6 characters will not be accepted
 	// an error message will be returned
 	@Test
@@ -49,7 +49,7 @@ public class LoginUserStory {
 	}
 	
 	
-    // Tests Scenario 2 of User Story 4
+	// Tests Scenario 2 of User Story 4
 	// Tests that the user should not be authenticated with wrong password
 	// an error message will be returned
 	@Test
@@ -69,7 +69,7 @@ public class LoginUserStory {
 	
 	
 
-    // Tests Scenario 3 of User Story 4
+	// Tests Scenario 3 of User Story 4
 	// Tests that the user should not be authenticated with wrong email
 	// an error message will be returned
 	@Test
