@@ -30,6 +30,7 @@ public class SearchbarUserStory {
 		driver.quit();
 	}
 	
+    
 	// Tests Scenario 1 of User Story 2
 	// Tests that searching for "Jiayan Zhang" using the search bar will return a user
 	// named "Jiayan Zhang" that users can click a button to connect

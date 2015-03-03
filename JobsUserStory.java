@@ -30,7 +30,8 @@ public class JobsUserStory {
 		driver.quit();
 	}
 	
-    // Tests Scenario 1 of User Story 3
+    
+	// Tests Scenario 1 of User Story 3
 	// Tests that if user submit the form without filling the company name,
 	// an error message will be returned
 	@Test
@@ -44,7 +45,7 @@ public class JobsUserStory {
 	}
 	
 	
-    // Tests Scenario 2 of User Story 3
+	// Tests Scenario 2 of User Story 3
 	// Tests that if user enter a company name longer than 100 characters
 	// an error message will be returned
 	@Test
