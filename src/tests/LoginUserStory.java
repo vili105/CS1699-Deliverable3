@@ -3,45 +3,33 @@ import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-/**
- * Login User Story
- * 
- * As a user
- * I want to login to the system
- * So that I can access my personal data
- * 
- */
-public class LoginUserStory
-{
-	private WebDriver driver;
+
+public class LoginUserStory {
 	
-	/**
-	 * Prepare the Firefox driver
-	 */
+	private WebDriver driver;
+	private String URL = "http://www.linkedin.com";
+	
+
 	@Before
 	public void setUp()
 	{
 		driver = new FirefoxDriver();
+		driver.get(URL);
 	}
 	
-	/**
-	 * Free up the used resources
-	 */
+	
 	@After
 	public void tearDown()
 	{
 		driver.quit();
 	}
 	
-	/**
-	 * Short password under 6 characters should not be accepted
-	 * 
-	 * Check if the proper error message is displayed
-	 */
+	
+	// Tests that short password under 6 characters will not be accepted
+	// an error message will be returned
 	@Test
 	public void Scenario1()
 	{
-		driver.get("https://www.linkedin.com/");
 		WebElement username_input = driver.findElement(By.id("session_key-login"));
 		username_input.sendKeys("vili105@abv.bg");
 		WebElement password_input = driver.findElement(By.id("session_password-login"));
@@ -54,15 +42,12 @@ public class LoginUserStory
 		assertEquals(identity_container.getText(), "The password you provided must have at least 6 characters.");
 	}
 	
-	/**
-	 * The user should not be authenticated with wrong password
-	 * 
-	 * Check if the proper error message is displayed
-	 */
+	
+	// Tests that the user should not be authenticated with wrong password
+	// an error message will be returned
 	@Test
 	public void Scenario2()
 	{
-		driver.get("https://www.linkedin.com/");
 		WebElement username_input = driver.findElement(By.id("session_key-login"));
 		username_input.sendKeys("vili105@abv.bg");
 		WebElement password_input = driver.findElement(By.id("session_password-login"));
@@ -75,15 +60,13 @@ public class LoginUserStory
 		assertTrue(identity.getText().contains("Hmm, that's not the right password"));
 	}
 	
-	/**
-	 * The user should not be authenticated with wrong email
-	 * 
-	 * Check if the proper error message is displayed
-	 */
+	
+	
+	// Tests that the user should not be authenticated with wrong email
+	// an error message will be returned
 	@Test
 	public void Scenario3()
-	{
-		driver.get("https://www.linkedin.com/");
+	{		
 		WebElement username_input = driver.findElement(By.id("session_key-login"));
 		username_input.sendKeys("vili105105105105105@abv.bg");
 		WebElement password_input = driver.findElement(By.id("session_password-login"));
@@ -96,16 +79,13 @@ public class LoginUserStory
 		assertEquals(identity.getText(), "Hmm, we don't recognize that email. Please try again.");
 	}
 
-	/**
-	 * The user should be authenticated with a
-	 * valid email and password
-	 * 
-	 * Check if the user name is contained in the profile element
-	 */
-	@Test
+	
+	
+	// Tests that if the user is authenticated with a pair of valid email and password
+	// the user will be redirected to the profile page that contains the user's name
+	@Test	
 	public void Scenario4()
 	{
-		driver.get("https://www.linkedin.com/");
 		WebElement username_input = driver.findElement(By.id("session_key-login"));
 		username_input.sendKeys("vili105@abv.bg");
 		WebElement password_input = driver.findElement(By.id("session_password-login"));
@@ -117,5 +97,4 @@ public class LoginUserStory
 		
 		assertTrue(identity.getText().contains("vil vil"));
 	}
-
 }
