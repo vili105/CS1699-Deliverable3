@@ -1,20 +1,34 @@
 import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SignupUserStory {
  
-	private WebDriver driver = new FirefoxDriver();
+	private WebDriver driver;
 	private String URL = "http://www.linkedin.com";
 	
+	@Before
+	public void setUp() throws Exception
+	{
+		driver = new FirefoxDriver();	
+		driver.get(URL);
+	}
+	
+	@After
+	public void tearDown() throws Exception
+	{
+		driver.quit();
+	}
+
 	
 	// Scenario 1
 	// Tests that attempting to create an account with an email address
 	// that has been registered by someone else will be rejected
 	@Test
-	public void Scenario1() throws InterruptedException {
-		driver.get(URL);	 	 
+	public void Scenario1() throws InterruptedException {			 	 
 		driver.findElement(By.id("firstName-coldRegistrationForm")).sendKeys("Alice");
 		driver.findElement(By.id("lastName-coldRegistrationForm")).sendKeys("Smith");
 		driver.findElement(By.id("email-coldRegistrationForm")).sendKeys("jiz86@pitt.edu");
@@ -23,7 +37,6 @@ public class SignupUserStory {
 		String expectedText = "The email address, jiz86@pitt.edu, is already registered.";
 		String actualText = driver.findElement(By.id("global-error")).getText();
 		assertEquals(expectedText, actualText);		 
-		driver.quit();
 	}
 	
 	
@@ -32,7 +45,6 @@ public class SignupUserStory {
 	// that is too short (5-character long) will be rejected
 	@Test
 	public void Scenario2() throws InterruptedException {
-		driver.get(URL);
 		driver.findElement(By.id("firstName-coldRegistrationForm")).sendKeys("Alice");
 		driver.findElement(By.id("lastName-coldRegistrationForm")).sendKeys("Smith");
 		driver.findElement(By.id("email-coldRegistrationForm")).sendKeys("dummy@pitt.edu");
@@ -41,7 +53,6 @@ public class SignupUserStory {
 		String expectedText = "Please correct the marked field(s) below.";		
 		String actualText = driver.findElement(By.id("global-error")).getText();
 		assertEquals(expectedText, actualText);
-		driver.quit();
 	}
 	
 	// Scenario 3
@@ -49,7 +60,6 @@ public class SignupUserStory {
 	// that does not follow the format of a legitimate email address will be rejected
 	@Test
 	public void Scenario3() throws InterruptedException {
-		driver.get(URL);	 	 
 		driver.findElement(By.id("firstName-coldRegistrationForm")).sendKeys("Alice");
 		driver.findElement(By.id("lastName-coldRegistrationForm")).sendKeys("Smith");
 		driver.findElement(By.id("email-coldRegistrationForm")).sendKeys("dummy@1");
@@ -58,7 +68,6 @@ public class SignupUserStory {
 		String expectedText = "Please correct the marked field(s) below.";		
 		String actualText = driver.findElement(By.id("global-error")).getText();
 		assertEquals(expectedText, actualText);
-		driver.quit();
 	}
 	
 	// Scenario 4
@@ -66,7 +75,6 @@ public class SignupUserStory {
 	// without entering a last name will be rejected
 	@Test
 	public void Scenario4() throws InterruptedException {
-		driver.get(URL);
 		driver.findElement(By.id("firstName-coldRegistrationForm")).sendKeys("Alice");
 		driver.findElement(By.id("email-coldRegistrationForm")).sendKeys("dummy@pitt.edu");
 		driver.findElement(By.id("password-coldRegistrationForm")).sendKeys("3Jrx9Qw");
@@ -74,7 +82,6 @@ public class SignupUserStory {
 		String expectedText = "Please correct the marked field(s) below.";		
 		String actualText = driver.findElement(By.id("global-error")).getText();
 		assertEquals(expectedText, actualText);
-		driver.quit();
 	}
 	
 	// Scenario 5
@@ -83,7 +90,6 @@ public class SignupUserStory {
 	// web page that asks for user's phone number in order to do verification
 	@Test
 	public void Scenario5() throws InterruptedException {
-		driver.get(URL);	 	 
 		driver.findElement(By.id("firstName-coldRegistrationForm")).sendKeys("James");	
 		driver.findElement(By.id("lastName-coldRegistrationForm")).sendKeys("James");
 		driver.findElement(By.id("email-coldRegistrationForm")).sendKeys("dummy@pitt.edu");
@@ -92,6 +98,5 @@ public class SignupUserStory {
 		String expectedText = "Please enter your phone number and we'll send you a text message with a verification code you can use for registration.";
 		String bodyText = driver.findElement(By.id("main")).getText();
 		assertTrue(bodyText.contains(expectedText));
-		driver.quit();
 	}
 }

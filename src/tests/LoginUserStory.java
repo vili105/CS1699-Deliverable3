@@ -1,7 +1,4 @@
-package tests;
-
 import static org.junit.Assert.*;
-
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
